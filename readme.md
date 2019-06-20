@@ -1,5 +1,4 @@
-login to postgres:
-sudo -u postgres psql
+login to postgres: sudo -u postgres psql
 
 create database: CREATE DATABASE producthuntdb;
 
