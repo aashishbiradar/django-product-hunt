@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'products.apps.ProductsConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'producthuntdb',
-        'USER' : 'postgres',
-        'PASSWORD' : 'django123',
+        'USER' : 'aashish',
+        'PASSWORD' : 'adarsh28',
         'HOST' : 'localhost',
         'PORT' : '5432'
     }
