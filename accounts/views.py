@@ -15,13 +15,22 @@ def signup(req):
                 auth.login(req,user)
                 return redirect('home')
         else:
-            return render (req,"accounts/signup.html",{'error':'Passwords do not match!'})
+            return render(req,"accounts/signup.html",{'error':'Passwords do not match!'})
     else:
-        return render (req,"accounts/signup.html")
+        return render(req,"accounts/signup.html")
 
 def login(req):
-    return render (req,"accounts/login.html")
+    if req.method == 'POST':
+        user = auth.authenticate(username=req.POST['email'],password=req.POST['password'])
+        if user:
+            auth.login(req,user)
+            return redirect('home')
+        else:
+            return render(req,'accounts/login.html',{'error': 'Invalid email or password!'})
+    else:
+        return render(req,"accounts/login.html")
 
 def logout(req):
-    #TODO need to route to home page
-    return render (req,"accounts/signup.html")
+    if req.method == 'POST':
+        auth.logout(req)
+        return redirect('home')
